@@ -110,6 +110,6 @@ git switch "$ARCHIVE_BRANCH"
 [ "$LOG_LEVEL" = "debug" ] && git status
 echo "== Copying commit history into easybuild-easyconfigs-archive repo"
 git remote add prune-repo "$PRUNE_REPO"
-git pull --allow-unrelated-histories --no-commit prune-repo "$ARCHIVE_BRANCH"
+git pull --allow-unrelated-histories --strategy-option=theirs --no-commit prune-repo "$ARCHIVE_BRANCH"
 git commit -m "Archive commit history of $ARCHIVES_COUNT files in easybuild-easyconfigs"
 git remote rm prune-repo
